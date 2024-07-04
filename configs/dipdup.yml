@@ -45,6 +45,7 @@ api:
   blob_receiver: ${BLOB_RECEIVER:-dal_api}
   sentry_dsn: ${SENTRY_DSN}
   websocket: ${API_WEBSOCKET_ENABLED:-true}
+  allow_all_cors_origins: ${API_ALLOW_ALL_CORS_ORIGINS:-false}
 
 environment: ${CELENIUM_ENV:-production}
 

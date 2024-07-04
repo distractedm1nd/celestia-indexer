@@ -229,6 +229,10 @@ func initEcho(cfg ApiConfig, db postgres.Storage, env string) *echo.Echo {
 	e.Use(middleware.Secure())
 	e.Pre(middleware.RemoveTrailingSlash())
 
+	if cfg.AllowAllCORSOrigins {
+		e.Use(middleware.CORS())
+	}
+
 	if cfg.Prometheus {
 		e.Use(echoprometheus.NewMiddlewareWithConfig(echoprometheus.MiddlewareConfig{
 			Namespace: "celestia_api",
